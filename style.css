@@ -1,9 +1,10 @@
 .card img {
     width: 100%;
-    height: auto;
+    max-width: 600px;  /* Limits the image size specifically */
+    height: auto;      /* Maintains aspect ratio */
     border-radius: 4px;
     display: block;
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto; /* Centers the image and adds bottom spacing */
 }
 
 body {
@@ -27,7 +28,8 @@ body {
     border: 1px solid #333;
     border-radius: 8px;
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px auto; /* Centers the card on the page */
+    max-width: 800px;   /* Prevents the card from stretching across the whole screen */
 }
 
 h2 {
