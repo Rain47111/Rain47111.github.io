@@ -39,34 +39,34 @@ body {
     to { opacity: 0.6; }
 }
 
-/* 3. Meteor Shower: Dot Head with Fading Trail */
+/* 3. Meteor Shower: Dot Head with Fading Trail (Behind the head) */
 .shooting-star {
     position: absolute;
-    width: 4px;        /* The "Dot" head size */
+    width: 4px;        /* The bright dot "head" */
     height: 4px;
-    background: #fff;  /* Bright white core */
-    border-radius: 50%; /* Makes the head a round dot */
+    background: #fff;  
+    border-radius: 50%;
     opacity: 0;
     z-index: 5;
-    /* Glow effect for the star head */
     box-shadow: 0 0 10px #fff, 0 0 20px #fff; 
     animation: shooting 3s ease-in-out infinite;
 }
 
-/* The Cinematic Trail */
+/* Corrected Trail: Anchored to the back of the dot */
 .shooting-star::before {
     content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 150px; /* Length of the fading tail */
-    height: 1px;  /* Tail thickness */
-    /* Fades from the head into the darkness of space */
-    background: linear-gradient(90deg, #fff, transparent);
-    z-index: -1;  /* Keeps the trail behind the star head */
+    width: 150px;     /* Length of the tail */
+    height: 1px;
+    right: 0;          /* Anchors the white end of the trail to the dot head */
+    /* Trail fades from the dot into the background */
+    background: linear-gradient(90deg, transparent, #fff); 
+    z-index: -1;
 }
 
-/* Individual timings and paths for variety across the full page */
+/* Individual timings for variety across the full page */
 .shooting-star:nth-child(3) { top: 10%; left: 80%; animation-delay: 0s; }
 .shooting-star:nth-child(4) { top: 30%; left: 60%; animation-delay: 1.5s; }
 .shooting-star:nth-child(5) { top: 50%; left: 90%; animation-delay: 2.2s; }
@@ -75,16 +75,16 @@ body {
 
 @keyframes shooting {
     0% { 
-        /* Starting point with 215-degree rotation for the downward path */
-        transform: translateX(0) translateY(0) rotate(215deg); 
+        /* 225deg rotation aligns the trail perfectly behind the bottom-left motion */
+        transform: translateX(0) translateY(0) rotate(225deg); 
         opacity: 1; 
     }
     70% { 
         opacity: 1; 
     }
     100% { 
-        /* Moves the star across the screen while maintaining the flight angle */
-        transform: translateX(-1000px) translateY(1000px) rotate(215deg); 
+        /* Moves the star towards the bottom left while maintaining alignment */
+        transform: translateX(-1000px) translateY(1000px) rotate(225deg); 
         opacity: 0; 
     }
 }
@@ -103,9 +103,9 @@ body {
 
 /* 5. AAA "Glassmorphism" Project Cards */
 .card {
-    background: rgba(30, 30, 30, 0.7); /* Semi-transparent */
-    backdrop-filter: blur(8px);       /* Frosty glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle tech border */
+    background: rgba(30, 30, 30, 0.7); 
+    backdrop-filter: blur(8px);       
+    border: 1px solid rgba(255, 255, 255, 0.1); 
     border-radius: 12px;
     padding: 25px;
     margin: 40px auto;
@@ -115,7 +115,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Card lifts slightly on hover like a menu */
+    transform: translateY(-5px); 
 }
 
 .card img {
