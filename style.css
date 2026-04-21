@@ -150,3 +150,30 @@ a { color: #4db8ff; text-decoration: none; font-weight: bold; }
     padding: 0 20px;         /* Adds a small buffer for mobile screens [cite: 505, 642] */
     line-height: 1.8;        /* Improves readability for the bio [cite: 284] */
 }
+
+/* 7. Sequential Fade-In Animations */
+
+/* The Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Slides up from 30px below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Base class for animated elements */
+.fade-in {
+    opacity: 0; /* Start invisible */
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Sequential timing for that "AAA" intro sequence */
+.header-fade { animation-delay: 0.2s; }
+.about-fade  { animation-delay: 0.6s; }
+.card-1      { animation-delay: 1.0s; }
+.card-2      { animation-delay: 1.3s; }
+.card-3      { animation-delay: 1.6s; }
