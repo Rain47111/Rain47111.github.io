@@ -141,3 +141,12 @@ body {
 .card img { width: 100%; max-width: 600px; height: auto; border-radius: 6px; display: block; margin: 0 auto 20px auto; }
 h2 { color: #007acc; margin-top: 0; }
 a { color: #4db8ff; text-decoration: none; font-weight: bold; }
+
+/* 6. About Me Section Alignment */
+.about {
+    text-align: center;      /* Centers the "About Me" heading and the text  */
+    max-width: 800px;        /* Matches the width of your project cards [cite: 520, 667, 720] */
+    margin: 40px auto;       /* Centers the entire container on the page  */
+    padding: 0 20px;         /* Adds a small buffer for mobile screens [cite: 505, 642] */
+    line-height: 1.8;        /* Improves readability for the bio [cite: 284] */
+}
