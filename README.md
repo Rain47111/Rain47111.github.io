@@ -52,7 +52,7 @@ Custom-built website demonstrating front-end fundamentals and design.
 
 ## 📬 Contact
 
-* GitHub: https://github.com/yourusername
+* GitHub: https://github.com/rain47111
 * Email: alexflores47111@icloud.com
 
 ---
