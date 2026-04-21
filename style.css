@@ -2,103 +2,58 @@
 body {
     margin: 0;
     padding: 0;
-    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-    background-attachment: fixed;
     color: #e0e0e0;
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
+    background-color: #090A0F; /* Solid base color */
 }
 
-/* 2. Global Space Container */
+/* 2. Global Space Container (The Layer Fix) */
 .stars-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -1; 
     overflow: hidden;
+    /* Move the gradient here so it doesn't cover the stars */
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
 }
 
-/* 3. Static Background Stars (High-Visibility Depth) */
+/* 3. Static Background Stars (Procedural Code Fix) */
 .stars, .stars2, .stars3 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat;
 }
 
+/* Procedural Stars using Box-Shadow (No image link required) */
 .stars {
-    opacity: 0.4; /* Increased for better visibility */
-    background-size: 200px 200px;
+    background: transparent;
+    /* This creates hundreds of tiny 'dots' at different positions */
+    box-shadow: 454px 582px #FFF, 1754px 233px #FFF, 451px 150px #FFF, 1200px 800px #FFF, 300px 200px #FFF, 1500px 500px #FFF, 100px 900px #FFF, 700px 100px #FFF;
+    width: 1px;
+    height: 1px;
+    opacity: 0.5;
 }
 
 .stars2 {
-    opacity: 0.6; /* Brightest layer to make it pop */
-    background-size: 300px 300px;
-    animation: twinkle 8s ease-in-out infinite alternate;
-}
-
-.stars3 {
-    opacity: 0.3; /* Subtle extra layer */
-    background-size: 500px 500px;
+    background: transparent;
+    box-shadow: 154px 282px #FFF, 1054px 633px #FFF, 851px 350px #FFF, 400px 600px #FFF, 1800px 100px #FFF, 200px 800px #FFF;
+    width: 2px;
+    height: 2px;
+    opacity: 0.8;
+    animation: twinkle 5s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
     from { opacity: 0.3; }
-    to { opacity: 0.7; }
+    to { opacity: 0.9; }
 }
 
-/* 4. Meteor Shower: Slower speed and Dot + Trail */
-.shooting-star {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #fff;
-    border-radius: 50%;
-    opacity: 0;
-    z-index: 5;
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff;
-    animation: shooting 6s ease-in-out infinite; 
-}
-
-.shooting-star::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 150px;
-    height: 1px;
-    right: 0;
-    background: linear-gradient(to right, transparent, #fff);
-    z-index: -1;
-}
-
-/* Lowered Spawn Rate: Precise timing for rare, professional "accents" */
-.shooting-star:nth-child(3) { top: 10%; left: 80%; animation-delay: 0s; }
-.shooting-star:nth-child(4) { top: 30%; left: 60%; animation-delay: 4s; }
-.shooting-star:nth-child(5) { top: 50%; left: 90%; animation-delay: 8s; }
-.shooting-star:nth-child(6) { top: 70%; left: 50%; animation-delay: 12s; }
-.shooting-star:nth-child(7) { top: 20%; left: 20%; animation-delay: 16s; }
-
-@keyframes shooting {
-    0% { 
-        transform: translateX(0) translateY(0) rotate(135deg); 
-        opacity: 1; 
-    }
-    30% { 
-        opacity: 1; 
-    }
-    60% { 
-        opacity: 0; 
-    }
-    100% { 
-        transform: translateX(-1000px) translateY(1000px) rotate(135deg); 
-        opacity: 0; 
-    }
-}
 
 /* 5. Hero & Card Styles (AAA Glassmorphism Look) */
 .hero {
